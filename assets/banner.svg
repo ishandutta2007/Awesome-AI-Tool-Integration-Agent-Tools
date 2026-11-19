@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.8" />
+    </linearGradient>
+
+    <radialGradient id="glowPulse1" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35">
+        <animate attributeName="stop-opacity" values="0.35;0.15;0.35" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#090d16" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowPulse2" cx="80%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3">
+        <animate attributeName="stop-opacity" values="0.3;0.1;0.3" dur="7s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#090d16" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="cyberGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1" />
+      <circle cx="40" cy="40" r="1" fill="rgba(56, 189, 248, 0.2)" />
+    </pattern>
+
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 46px;
+      fill: url(#primaryGrad);
+      letter-spacing: -0.5px;
+    }
+    .subtitle-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      fill: #94a3b8;
+      letter-spacing: 0.2px;
+    }
+    .tagline-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      fill: #38bdf8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .pill-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #e2e8f0;
+    }
+    .flow-line {
+      stroke-dasharray: 8, 8;
+      animation: flowDash 30s linear infinite;
+    }
+    @keyframes flowDash {
+      to {
+        stroke-dashoffset: -1000;
+      }
+    }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="420" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="420" rx="16" fill="url(#cyberGrid)" />
+  
+  <!-- Ambient Glow Orbs -->
+  <circle cx="250" cy="120" r="300" fill="url(#glowPulse1)" />
+  <circle cx="950" cy="300" r="350" fill="url(#glowPulse2)" />
+
+  <!-- Animated Background Network / Flow lines (strictly in background) -->
+  <g opacity="0.4" class="flow-line">
+    <path d="M 100 80 Q 300 200, 600 120 T 1100 160" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+    <path d="M 50 340 Q 400 240, 700 360 T 1150 280" fill="none" stroke="#a855f7" stroke-width="1.5" />
+    <path d="M 200 40 Q 600 180, 1000 60" fill="none" stroke="#818cf8" stroke-width="1" />
+  </g>
+
+  <!-- Dynamic Glowing Particles (strictly kept outside text area) -->
+  <circle cx="120" cy="180" r="4" fill="#38bdf8" filter="url(#neonGlow)">
+    <animate attributeName="cy" values="180;160;180" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="4s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1080" cy="220" r="5" fill="#c084fc" filter="url(#neonGlow)">
+    <animate attributeName="cy" values="220;245;220" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="180" cy="300" r="3" fill="#22d3ee" filter="url(#neonGlow)">
+    <animate attributeName="cx" values="180;195;180" dur="6s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1020" cy="110" r="3.5" fill="#818cf8" filter="url(#neonGlow)">
+    <animate attributeName="cy" values="110;95;110" dur="4.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Border Highlight Outline -->
+  <rect x="1" y="1" width="1198" height="418" rx="15" fill="none" stroke="url(#accentGrad)" stroke-width="1.5" opacity="0.4" />
+
+  <!-- Foreground Content Block: Title & Subtitle remain clear and prominent -->
+  <g transform="translate(600, 75)" text-anchor="middle">
+    <!-- Tagline Badge -->
+    <rect x="-140" y="0" width="280" height="28" rx="14" fill="rgba(56, 189, 248, 0.1)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1" />
+    <text x="0" y="19" text-anchor="middle" class="tagline-text">⚡ Curated Ecosystem Index ⚡</text>
+
+    <!-- Main Title -->
+    <text x="0" y="85" text-anchor="middle" class="title-text" filter="url(#neonGlow)">Awesome AI Tool Integration</text>
+    <text x="0" y="135" text-anchor="middle" class="title-text" style="font-size: 34px;">&amp; Agent Tools</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="185" text-anchor="middle" class="subtitle-text">Model Context Protocol (MCP) • Function Calling • Action Connectors • Unified APIs</text>
+  </g>
+
+  <!-- Dynamic Feature Pills (Foreground, nicely spaced at bottom) -->
+  <g transform="translate(140, 315)">
+    <!-- Pill 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="180" height="42" rx="21" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" />
+      <circle cx="24" cy="21" r="6" fill="#38bdf8" />
+      <text x="42" y="26" class="pill-text">🔌 1,000+ Connectors</text>
+    </g>
+
+    <!-- Pill 2 -->
+    <g transform="translate(200, 0)">
+      <rect width="170" height="42" rx="21" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(129, 140, 248, 0.4)" stroke-width="1.5" />
+      <circle cx="24" cy="21" r="6" fill="#818cf8" />
+      <text x="42" y="26" class="pill-text">🌐 MCP Gateways</text>
+    </g>
+
+    <!-- Pill 3 -->
+    <g transform="translate(390, 0)">
+      <rect width="170" height="42" rx="21" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(192, 132, 252, 0.4)" stroke-width="1.5" />
+      <circle cx="24" cy="21" r="6" fill="#c084fc" />
+      <text x="42" y="26" class="pill-text">🔐 Managed OAuth</text>
+    </g>
+
+    <!-- Pill 4 -->
+    <g transform="translate(580, 0)">
+      <rect width="160" height="42" rx="21" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(34, 211, 238, 0.4)" stroke-width="1.5" />
+      <circle cx="24" cy="21" r="6" fill="#22d3ee" />
+      <text x="42" y="26" class="pill-text">⚡ Code Sandboxes</text>
+    </g>
+
+    <!-- Pill 5 -->
+    <g transform="translate(760, 0)">
+      <rect width="160" height="42" rx="21" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(244, 114, 182, 0.4)" stroke-width="1.5" />
+      <circle cx="24" cy="21" r="6" fill="#f472b6" />
+      <text x="42" y="26" class="pill-text">🤖 Durable Agents</text>
+    </g>
+  </g>
+</svg>
